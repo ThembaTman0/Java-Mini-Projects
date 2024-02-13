@@ -7,7 +7,7 @@ public class Main {
     static final int MONTHS=12;
     public static double calculateMortgage(int principle, double annualInterestRate, int period) {
         double r = (annualInterestRate / PERCENTAGE) / MONTHS;
-        double x = Math.pow((1 + r), period);
+        double x = Math.pow((1 + r), period*MONTHS);
 
         return (double) principle * ((r * x) / (x - 1));
     }
@@ -20,7 +20,7 @@ public class Main {
         System.out.print("Annual Interest Rate (%): ");
         double annualInterestRate = scanner.nextDouble();
 
-        System.out.print("Loan Period (months): ");
+        System.out.print("Loan Period (Years): ");
         int period = scanner.nextInt();
 
         double monthlyPayment = calculateMortgage(principle, annualInterestRate, period);
